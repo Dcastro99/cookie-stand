@@ -2,12 +2,11 @@
 
 // console.log('hi');
 
-const profileContainer = document.getElementById('store breakdowns');
+const profileContainer = document.getElementById('store_breakdowns');
 
 
-let hours = ['6 a.m.', '7 a.m.', '8 a.m.', '9 a.m.', '10 a.m.', '11 a.m.', '12 p.m.', '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.', 'Total',];
+let hours = ['6 a.m.', '7 a.m.', '8 a.m.', '9 a.m.', '10 a.m.', '11 a.m.', '12 p.m.', '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.'];
 
-let cookies = [16, 20, 35, 48, 56, 77, 93, 144, 119, 84, 61, 23, 42, 59, 875];
 
 let seattle = {
   name: 'Seattle',
@@ -16,28 +15,78 @@ let seattle = {
   avg: 6.3,
   dailyTotal: 0,
   averageCookiesSoldEachHourArry: [],
-  // getRandomCustomers: function() {
-    
-  //   return Math.floor(Math.random() * (this.max - this.min + 1) + this.min); 
-  // }
- 
-  render: function () {
+  getRandomCustomers: function() {
+    // 'this' references the object. anything defined on the object itself can use 'this'.
+    return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
+  },
+  calCookiesPerHour: function(){
+    for (let i = 0; i < hours.length; i++) {
+      let hourText = hours[i];
+      console.log(hours[i]);
+
+      let customesThisHour = this.getRandomCustomers();
+
+      // this is one hours sold amount:
+      let cookiesSoldThisHour = Math.ceil(customesThisHour * this.avg);
+
+      this.dailyTotal += cookiesSoldThisHour;
+
+      // let finalText = `${hourText}: ${cookiesSoldThisHour} cookies`;
+      // this.averageCookiesSoldEachHourArry.push(finalText);
+
+      let obj = {
+        hour: hourText,
+        count: cookiesSoldThisHour,
+      };
+
+      this.averageCookiesSoldEachHourArry.push(obj);
+    }
+  },
+
+  render: function() {
+    this.calCookiesPerHour();
+    console.log(this.averageCookiesSoldEachHourArry);
+
+    let header = document.createElement('h1');
+    header.textContent = `The Hourly AVG for ${this.name} was:`;
+    profileContainer.appendChild(header);
+
+    let ul = document.createElement('ul');
+
     for (let i = 0; i < this.averageCookiesSoldEachHourArry.length; i++) {
-      let li = document.createElement('li');
-      li.textContent = `${this.name}`;
+      let object = this.averageCookiesSoldEachHourArry[i];
+      // object.hour // hour text
+      // object.count // cookies sold
+
+      let textElement = document.createElement('p');
+
+      let endingText = ' cookie';
+      if (object.count > 1) {
+        endingText += 's';
+      }
+
+      textElement.textContent = object.hour + ' : ' + object.count + endingText;
+
+      // let numToShow = this.averageCookiesSoldEachHourArry[i];
+      let li  = document.createElement('li');
+      li.appendChild(textElement);
+
+      // li.textContent = numToShow;
       ul.appendChild(li);
     }
-  }
 
+    if (this.dailyTotal > 0) {
+      let totalElement = document.createElement('li');
+      totalElement.textContent = 'Total: ' + this.dailyTotal;
+      ul.appendChild(totalElement);
+    }
+
+    profileContainer.appendChild(ul);
+  }
 };
 
-let div = document.createElement('div');
-
-
-let ul = document.createElement('ul');
-div.appendChild(ul);
-
+seattle.render();
 
 // console.log(seattle.getRandomCustomers());
-seattle.render();
+
 
