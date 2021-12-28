@@ -22,7 +22,7 @@ let seattle = {
   calCookiesPerHour: function(){
     for (let i = 0; i < hours.length; i++) {
       let hourText = hours[i];
-      console.log(hours[i]);
+      // console.log(hours[i]);
 
       let customesThisHour = this.getRandomCustomers();
 
@@ -45,7 +45,7 @@ let seattle = {
 
   render: function() {
     this.calCookiesPerHour();
-    console.log(this.averageCookiesSoldEachHourArry);
+    // console.log(this.averageCookiesSoldEachHourArry);
 
     let header = document.createElement('h1');
     header.textContent = `The Hourly AVG for ${this.name} was:`;
@@ -101,7 +101,7 @@ let tokyo = {
   calCookiesPerHour: function(){
     for (let i = 0; i < hours.length; i++) {
       let hourText = hours[i];
-      console.log(hours[i]);
+      // console.log(hours[i]);
 
       let customesThisHour = this.getRandomCustomers();
 
@@ -124,7 +124,7 @@ let tokyo = {
 
   render: function() {
     this.calCookiesPerHour();
-    console.log(this.averageCookiesSoldEachHourArry);
+    // console.log(this.averageCookiesSoldEachHourArry);
 
     let header = document.createElement('h1');
     header.textContent = `The Hourly AVG for ${this.name} was:`;
@@ -180,7 +180,7 @@ let dubai = {
   calCookiesPerHour: function(){
     for (let i = 0; i < hours.length; i++) {
       let hourText = hours[i];
-      console.log(hours[i]);
+      // console.log(hours[i]);
 
       let customesThisHour = this.getRandomCustomers();
 
@@ -203,7 +203,7 @@ let dubai = {
 
   render: function() {
     this.calCookiesPerHour();
-    console.log(this.averageCookiesSoldEachHourArry);
+    // console.log(this.averageCookiesSoldEachHourArry);
 
     let header = document.createElement('h1');
     header.textContent = `The Hourly AVG for ${this.name} was:`;
@@ -259,7 +259,7 @@ let paris = {
   calCookiesPerHour: function(){
     for (let i = 0; i < hours.length; i++) {
       let hourText = hours[i];
-      console.log(hours[i]);
+      // console.log(hours[i]);
 
       let customesThisHour = this.getRandomCustomers();
 
@@ -282,7 +282,7 @@ let paris = {
 
   render: function() {
     this.calCookiesPerHour();
-    console.log(this.averageCookiesSoldEachHourArry);
+    // console.log(this.averageCookiesSoldEachHourArry);
 
     let header = document.createElement('h1');
     header.textContent = `The Hourly AVG for ${this.name} was:`;
@@ -338,7 +338,7 @@ let lima = {
   calCookiesPerHour: function(){
     for (let i = 0; i < hours.length; i++) {
       let hourText = hours[i];
-      console.log(hours[i]);
+      // console.log(hours[i]);
 
       let customesThisHour = this.getRandomCustomers();
 
@@ -361,7 +361,7 @@ let lima = {
 
   render: function() {
     this.calCookiesPerHour();
-    console.log(this.averageCookiesSoldEachHourArry);
+    // console.log(this.averageCookiesSoldEachHourArry);
 
     let header = document.createElement('h1');
     header.textContent = `The Hourly AVG for ${this.name} was:`;
