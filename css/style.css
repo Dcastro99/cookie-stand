@@ -1,0 +1,20 @@
+
+header{
+  background-color: rgb(61, 65, 69);
+  margin: 0rem;
+  margin-top: -1rem;
+}
+h1{
+  align-content: center;
+  
+}
+
+body{
+
+background-image: url("../img/cookies.jpg");
+background-position-y: 6rem;
+background-size:500px ;
+background-repeat: space;
+color: rgb(174, 174, 174);
+background-color:rgb(245, 183, 90);
+} 
