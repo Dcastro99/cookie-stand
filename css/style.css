@@ -3,10 +3,23 @@ header{
   background-color: rgb(61, 65, 69);
   margin: 0rem;
   margin-top: -1rem;
+  border: 20px solid rgb(237, 159, 117);
+}
+h1.header{
+min-width: 450px;
+max-height: 300px;
+text-align: center;
+padding: 1px;
+
+}
+div{
+  
+ 
 }
 h1{
-  align-content: center;
-  
+text-align: center;
+font-size: 70px;
+
 }
 
 body{
