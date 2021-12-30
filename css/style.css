@@ -8,19 +8,6 @@ header{
   border: 10px solid rgb(237, 159, 117);
 }
 
-.navigation{
-  list-style:square;
-}
-.box-2{
-  position: relative;
-  background-color: rgba(58, 57, 56, 0.44);
-  margin: 2rem;
-  margin-bottom: rem;
-  margin-top: rem;
-  border-radius: 10px;
-  border: 10px solid rgb(237, 159, 117);
-}
-
 .header{
   font-family: Licorice;
   font-size: 100px; 
@@ -28,6 +15,64 @@ min-width: 450px;
 max-height: 300px;
 text-align: center;
 padding: 1px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 78%;
+  max-width: 1310px;
+  height: 110px
+}
+
+nav li  {
+  display:inline-block;
+  float:left;
+  width: 40%;
+  height: 110px;
+  line-height: 110px;
+ 
+  text-align: center;
+  border-left: 5px solid rgb(237, 159, 117);
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+  transition: all .3s ease-in-out
+}
+
+ a:link, a:visited {
+    background-color: #41464554;
+    color: white;
+    padding: 0px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  
+  }
+  
+  a:hover, a:active {
+    background-color: rgba(238, 166, 103, 0.351);
+  }
+
+
+nav li:last-child {
+  border-right: 5px solid rgb(237, 159, 117)
+}
+.location{
+  width: fit-content;
+ block-size: fit-content;
+}
+
+.box-2{
+  top: -500px;
+  position: relative;
+  background-color: rgba(58, 57, 56, 0.44);
+  margin: 2rem;
+  margin-left: rem;
+  margin-top: rem;
+  border-radius: 10px;
+  border: 5px solid rgb(237, 159, 117);
+  
 }
 
 .title{
@@ -41,6 +86,8 @@ padding: 1px;
  
 }
 .box-1{
+  top: -480px;
+  position: relative;
   font-family: 'josefin sans';
   font-size: 70px;
   margin-left: 700px;
@@ -48,6 +95,8 @@ border: 10px thin coral;
 }
 
 .story{
+  top: -500px;
+  position: relative;
   font-family:'open sans';
   font-size: 30px;
   font-weight: bold;
