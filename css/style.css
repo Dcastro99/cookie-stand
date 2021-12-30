@@ -1,6 +1,6 @@
 
 header{
-  background-color: rgb(58, 57, 56);
+  background-color: rgba(58, 57, 56, 0.488);
   margin: 2rem;
   margin-bottom: 35rem;
   margin-top: 1rem;
@@ -21,7 +21,7 @@ nav ul {
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  width: 78%;
+  width: 111%;
   max-width: 1310px;
   height: 110px
 }
@@ -51,7 +51,7 @@ nav li  {
   }
   
   a:hover, a:active {
-    background-color: rgba(238, 166, 103, 0.351);
+    background-color: rgba(78, 228, 181, 0.351);
   }
 
 
@@ -64,14 +64,16 @@ nav li:last-child {
 }
 
 .box-2{
+ 
   top: -500px;
   position: relative;
   background-color: rgba(58, 57, 56, 0.44);
   margin: 2rem;
-  margin-left: rem;
-  margin-top: rem;
   border-radius: 10px;
-  border: 5px solid rgb(237, 159, 117);
+  border: 5px solid rgb(237, 159, 117); 
+  display:flex;
+  justify-content:center;
+  align-items: center;
   
 }
 
@@ -86,12 +88,15 @@ nav li:last-child {
  
 }
 .box-1{
+  color: rgba(127, 255, 212, 0.639);
   top: -480px;
   position: relative;
   font-family: 'josefin sans';
   font-size: 70px;
+  background-color: rgba(0, 0, 0, 0.536);
+  
   margin-left: 680px;
-border: 10px thin coral;
+ border: 10px thin coral;
 }
 
 .story{
@@ -132,6 +137,7 @@ font-size: 70px;
   background-image: url("../img/cookies.jpg");
   background-color: #060606; /* Used if the image is unavailable */
   height: 300px; /* You must set a specified height */
+  /* margin-left: 5rem; */
   background-position: center; /* Center the image */
   background-repeat: repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
