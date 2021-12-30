@@ -48,35 +48,35 @@ class City {
   }
 
   renderTableRow() {
-    const tr = document.createElement('tr');
+    let tr = document.createElement('tr');
     storeTable.querySelector('tbody').appendChild(tr);
-    const tdName = document.createElement('td');
+    let tdName = document.createElement('td');
     tdName.textContent = this.name;
     tr.appendChild(tdName);
 
     for (let i = 0; i < this.averageCookiesSoldEachHourArry.length; i++) {
-      const td = document.createElement('td');
+      let td = document.createElement('td');
       td.textContent = this.averageCookiesSoldEachHourArry[i].count;
       tr.appendChild(td);
     }
-    const td = document.createElement('td');
+    let td = document.createElement('td');
     td.textContent = this.dailyTotal;
     tr.appendChild(td);
   }
 }
 
 function renderTableHeader() {
-  const tr = document.createElement('tr');
+  let tr = document.createElement('tr');
 
-  const empty = document.createElement('th');
+  let empty = document.createElement('th');
   tr.appendChild(empty);
 
   for (let i = 0; i < hours.length; i++) {
-    const th = document.createElement('th');
+    let th = document.createElement('th');
     th.textContent = hours[i];
     tr.appendChild(th);
   }
-  const dailyTotals = document.createElement('th');
+  let dailyTotals = document.createElement('th');
   dailyTotals.textContent = 'Daily Location Total';
 
   // in the table row ('tr') add another 'th';
@@ -90,9 +90,9 @@ function renderTableHeader() {
 
 
 function renderTableFooter(allCitiesArray) {
-  const tr = document.createElement('tr');
+  let tr = document.createElement('tr');
 
-  const empty = document.createElement('td');
+  let empty = document.createElement('td');
   empty.textContent = 'Totals';
   tr.appendChild(empty);
   let grandTotal = 0;
@@ -109,14 +109,14 @@ function renderTableFooter(allCitiesArray) {
   // so averageCookiesSoldEachHourArry[i] corresponds to the count of the hour in seattle at 6 am
 
   for (let i = 0; i < hours.length; i++) {
-    const th = document.createElement('td');
+    let th = document.createElement('td');
     // totals counter:
     let totalsPerHour = 0;
 
     // i equals the hour (6 am for example)
     for (let j = 0; j < allCitiesArray.length; j++) {
       // j equals the index of the city in the cities array
-      const city = allCitiesArray[j];
+      let city = allCitiesArray[j];
 
       // this would be the count in seattle at 6 am for example
       totalsPerHour += city.averageCookiesSoldEachHourArry[i].count;
@@ -126,7 +126,7 @@ function renderTableFooter(allCitiesArray) {
     grandTotal += totalsPerHour;
     tr.appendChild(th);
   }
-  const dailyTotals = document.createElement('td');
+  let dailyTotals = document.createElement('td');
   dailyTotals.textContent = grandTotal;
 
   // in the table row ('tr') add another 'th';
@@ -232,21 +232,21 @@ function renderTableFooter(allCitiesArray) {
 
 renderTableHeader();
 
-const allCities = [];
+let allCities = [];
 
-const seattle = new City('Seattle', 23, 65, 6.3);
+let seattle = new City('Seattle', 23, 65, 6.3);
 allCities.push(seattle);
 
-const tokyo = new City('Tokyo', 3, 24, 1.2);
+let tokyo = new City('Tokyo', 3, 24, 1.2);
 allCities.push(tokyo);
 
-const dubai = new City('Dubai', 11, 38, 3.7);
+let dubai = new City('Dubai', 11, 38, 3.7);
 allCities.push(dubai);
 
-const paris = new City('Paris', 20, 38, 2.3);
+let paris = new City('Paris', 20, 38, 2.3);
 allCities.push(paris);
 
-const lima = new City('Lima', 2, 16, 4.6);
+let lima = new City('Lima', 2, 16, 4.6);
 allCities.push(lima);
 
 
@@ -254,7 +254,7 @@ allCities.push(lima);
 // other cities go here
 
 for (let i = 0; i < allCities.length; i++) {
-  const city = allCities[i];
+  let city = allCities[i];
   city.calCookiesPerHour();
   city.renderTableRow();
 }

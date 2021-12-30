@@ -1,9 +1,13 @@
 
 header{
-  background-color: rgb(41, 42, 43);
+  background-color: rgb(58, 57, 56);
   margin: 0rem;
   margin-top: -1rem;
   border: 20px solid rgb(237, 159, 117);
+}
+
+.navigation{
+  justify-content: space-evenly;
 }
 .header{
 
@@ -11,12 +15,25 @@ min-width: 450px;
 max-height: 300px;
 text-align: center;
 padding: 1px;
-
-
 }
-div{
-  
+
+.title{
+  color: coral;
+  padding: 1rem;
+  border: 20px solid rgb(22, 22, 21);
+  background-color: rgb(98, 148, 157);
+  opacity:200px  
+}
+.store_breakdowns{
+  background-color: rgb(71, 72, 72);
  
+}
+
+.table{
+padding: 2rem;
+align-content: center;
+margin-left: 110px;
+margin-top: 300px;
 }
 h1{
 text-align: center;
@@ -33,7 +50,10 @@ background-repeat: space;
 color: rgb(174, 174, 174);
 background-color:rgb(245, 183, 90);
 } 
-
+.sales-picture{
+  background-image: url("../img/cookies 2.jpg");
+  background-size:2000px ;
+}
 table, td, th {
   border: 1px solid rgb(237, 159, 117);
 }
@@ -42,6 +62,7 @@ table {
 }
 td, th {
   padding: 1rem;
+  color: azure;
 }
 thead th {
   font-weight: bold;
@@ -49,5 +70,7 @@ thead th {
   color: white;
 }
 tfoot {
+  
   background-color: rgba(112, 159, 165, .1);
+  
 }
