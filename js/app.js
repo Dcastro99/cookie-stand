@@ -10,62 +10,65 @@ const storeTable3 = document.querySelector('table tfoot');
 const hours = ['6 a.m.', '7 a.m.', '8 a.m.', '9 a.m.', '10 a.m.', '11 a.m.', '12 p.m.', '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.'];
 
 
-class City {
-  constructor(name, min, max, avg) {
-    this.name = name;
-    this.min = min;
-    this.max = max;
-    this.avg = avg;
-    this.dailyTotal = 0;
-    this.averageCookiesSoldEachHourArry = [];
+
+function City(name, min, max, avg) {
+  this.name = name;
+  this.min = min;
+  this.max = max;
+  this.avg = avg;
+  this.dailyTotal = 0;
+  this.averageCookiesSoldEachHourArry = [];
+}
+
+City.prototype.getRandomCustomers = function () {
+  return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
+};
+// 'this' references the object. anything defined on the object itself can use 'this'.
+
+
+City.prototype.calCookiesPerHour =function() {
+
+  for (let i = 0; i < hours.length; i++) {
+    let hourText = hours[i];
+    // console.log(hours[i]);
+
+    let customesThisHour = this.getRandomCustomers();
+
+    // this is one hours sold amount:
+    let cookiesSoldThisHour = Math.ceil(customesThisHour * this.avg);
+
+    this.dailyTotal += cookiesSoldThisHour;
+
+    // let finalText = `${hourText}: ${cookiesSoldThisHour} cookies`;
+    // this.averageCookiesSoldEachHourArry.push(finalText);
+
+    let obj = {
+      hour: hourText,
+      count: cookiesSoldThisHour,
+    };
+
+    this.averageCookiesSoldEachHourArry.push(obj);
   }
+};
 
-  getRandomCustomers() {
-    // 'this' references the object. anything defined on the object itself can use 'this'.
-    return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
-  }
+City.prototype.renderTableRow=function() {
 
-  calCookiesPerHour() {
-    for (let i = 0; i < hours.length; i++) {
-      let hourText = hours[i];
-      // console.log(hours[i]);
+  let tr = document.createElement('tr');
+  storeTable.appendChild(tr);
+  let tdName = document.createElement('td');
+  tdName.textContent = this.name;
+  tr.appendChild(tdName);
 
-      let customesThisHour = this.getRandomCustomers();
-
-      // this is one hours sold amount:
-      let cookiesSoldThisHour = Math.ceil(customesThisHour * this.avg);
-
-      this.dailyTotal += cookiesSoldThisHour;
-
-      // let finalText = `${hourText}: ${cookiesSoldThisHour} cookies`;
-      // this.averageCookiesSoldEachHourArry.push(finalText);
-
-      let obj = {
-        hour: hourText,
-        count: cookiesSoldThisHour,
-      };
-
-      this.averageCookiesSoldEachHourArry.push(obj);
-    }
-  }
-
-  renderTableRow() {
-    let tr = document.createElement('tr');
-    storeTable.appendChild(tr);
-    let tdName = document.createElement('td');
-    tdName.textContent = this.name;
-    tr.appendChild(tdName);
-
-    for (let i = 0; i < this.averageCookiesSoldEachHourArry.length; i++) {
-      let td = document.createElement('td');
-      td.textContent = this.averageCookiesSoldEachHourArry[i].count;
-      tr.appendChild(td);
-    }
+  for (let i = 0; i < this.averageCookiesSoldEachHourArry.length; i++) {
     let td = document.createElement('td');
-    td.textContent = this.dailyTotal;
+    td.textContent = this.averageCookiesSoldEachHourArry[i].count;
     tr.appendChild(td);
   }
-}
+  let td = document.createElement('td');
+  td.textContent = this.dailyTotal;
+  tr.appendChild(td);
+};
+
 
 function renderTableHeader() {
   let tr = document.createElement('tr');
