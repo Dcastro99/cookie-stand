@@ -2,8 +2,10 @@
 
 // console.log('hi');
 
-const profileContainer = document.getElementById('store_breakdowns');
-const storeTable = document.querySelector('table');
+//const profileContainer = document.getElementById('store_breakdowns');
+const storeTable = document.querySelector('table tbody');
+const storeTable2 = document.querySelector('table thead');
+const storeTable3 = document.querySelector('table tfoot');
 
 const hours = ['6 a.m.', '7 a.m.', '8 a.m.', '9 a.m.', '10 a.m.', '11 a.m.', '12 p.m.', '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.'];
 
@@ -49,7 +51,7 @@ class City {
 
   renderTableRow() {
     let tr = document.createElement('tr');
-    storeTable.querySelector('tbody').appendChild(tr);
+    storeTable.appendChild(tr);
     let tdName = document.createElement('td');
     tdName.textContent = this.name;
     tr.appendChild(tdName);
@@ -84,7 +86,7 @@ function renderTableHeader() {
 
   // instead of being super specific when getting the `storeTable` element from jquery, we are getting the whole table, 
   // then being specific about which part of the table we want
-  storeTable.querySelector('thead').appendChild(tr);
+  storeTable2.appendChild(tr);
 
 }
 
@@ -134,7 +136,7 @@ function renderTableFooter(allCitiesArray) {
 
   // instead of being super specific when getting the `storeTable` element from jquery, we are getting the whole table, 
   // then being specific about which part of the table we want
-  storeTable.querySelector('tfoot').appendChild(tr);
+  storeTable3.appendChild(tr);
 }
 
 // let seattle = {

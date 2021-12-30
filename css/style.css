@@ -1,16 +1,29 @@
 
 header{
   background-color: rgb(58, 57, 56);
-  margin: 0rem;
-  margin-top: -1rem;
-  border: 20px solid rgb(237, 159, 117);
+  margin: 2rem;
+  margin-bottom: 35rem;
+  margin-top: 1rem;
+  border-radius: 10px;
+  border: 10px solid rgb(237, 159, 117);
 }
 
 .navigation{
-  justify-content: space-evenly;
+  list-style:square;
 }
-.header{
+.box-2{
+  position: relative;
+  background-color: rgba(58, 57, 56, 0.44);
+  margin: 2rem;
+  margin-bottom: rem;
+  margin-top: rem;
+  border-radius: 10px;
+  border: 10px solid rgb(237, 159, 117);
+}
 
+.header{
+  font-family: Licorice;
+  font-size: 100px; 
 min-width: 450px;
 max-height: 300px;
 text-align: center;
@@ -18,59 +31,89 @@ padding: 1px;
 }
 
 .title{
+  font-family: Licorice;
+  font-size: 100px;
   color: coral;
   padding: 1rem;
-  border: 20px solid rgb(22, 22, 21);
+  border-radius: 10px;
+  border: 20px solid rgb(0, 0, 0);
   background-color: rgb(98, 148, 157);
-  opacity:200px  
-}
-.store_breakdowns{
-  background-color: rgb(71, 72, 72);
  
 }
+.box-1{
+  font-family: 'josefin sans';
+  font-size: 70px;
+  margin-left: 700px;
+border: 10px thin coral;
+}
+
+.story{
+  font-family:'open sans';
+  font-size: 30px;
+  font-weight: bold;
+  background-color: rgba(58, 57, 56, 0.44);
+  padding: 300px;
+  border-radius: 10px;
+  border: 15px solid rgb(237, 159, 117);
+  padding: 50px;
+  margin: 30px;
+}
+
+
+.store_breakdowns{
+ 
+  
+  background-color: rgba(0, 0, 0, 0.714); 
+}
+
 
 .table{
 padding: 2rem;
 align-content: center;
 margin-left: 110px;
-margin-top: 300px;
+margin-top: 200px;
 }
+
 h1{
 text-align: center;
 font-size: 70px;
-
 }
 
 .picture{
-
-background-image: url("../img/cookies.jpg");
-background-position-y: 6rem;
-background-size:500px ;
-background-repeat: space;
-color: rgb(174, 174, 174);
-background-color:rgb(245, 183, 90);
+  background-image: url("../img/cookies.jpg");
+  background-color: #060606; /* Used if the image is unavailable */
+  height: 300px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  color: rgb(194, 191, 191);
 } 
+
 .sales-picture{
   background-image: url("../img/cookies 2.jpg");
   background-size:2000px ;
 }
+
 table, td, th {
   border: 1px solid rgb(237, 159, 117);
 }
+
 table {
   margin: 1rem;
+  
 }
+
 td, th {
   padding: 1rem;
   color: azure;
 }
+
 thead th {
   font-weight: bold;
-  background-color:rgb(98, 99, 99);
+  background-color:rgb(93, 111, 111);
   color: white;
 }
-tfoot {
-  
+
+tfoot {  
   background-color: rgba(112, 159, 165, .1);
-  
 }
