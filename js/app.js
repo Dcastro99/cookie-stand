@@ -2,403 +2,153 @@
 
 // console.log('hi');
 
-const profileContainer = document.getElementById('store_breakdowns');
+//const profileContainer = document.getElementById('store_breakdowns');
+const storeTable = document.querySelector('table tbody');
+const storeTable2 = document.querySelector('table thead');
+const storeTable3 = document.querySelector('table tfoot');
+
+const hours = ['6 a.m.', '7 a.m.', '8 a.m.', '9 a.m.', '10 a.m.', '11 a.m.', '12 p.m.', '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.'];
 
 
-let hours = ['6 a.m.', '7 a.m.', '8 a.m.', '9 a.m.', '10 a.m.', '11 a.m.', '12 p.m.', '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.'];
+function City(name, min, max, avg) {
+  this.name = name;
+  this.min = min;
+  this.max = max;
+  this.avg = avg;
+  this.dailyTotal = 0;
+  this.averageCookiesSoldEachHourArry = [];
+}
+
+City.prototype.getRandomCustomers = function () {
+  return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
+};
+// 'this' references the object. anything defined on the object itself can use 'this'.
 
 
-let seattle = {
-  name: 'Seattle',
-  min: 23,
-  max: 65,
-  avg: 6.3,
-  dailyTotal: 0,
-  averageCookiesSoldEachHourArry: [],
-  getRandomCustomers: function() {
-    // 'this' references the object. anything defined on the object itself can use 'this'.
-    return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
-  },
-  calCookiesPerHour: function(){
-    for (let i = 0; i < hours.length; i++) {
-      let hourText = hours[i];
-      console.log(hours[i]);
+City.prototype.calCookiesPerHour = function() {
 
-      let customesThisHour = this.getRandomCustomers();
+  for (let i = 0; i < hours.length; i++) {
+    let hourText = hours[i];
+    // console.log(hours[i]);
 
-      // this is one hours sold amount:
-      let cookiesSoldThisHour = Math.ceil(customesThisHour * this.avg);
+    let customesThisHour = this.getRandomCustomers();
 
-      this.dailyTotal += cookiesSoldThisHour;
+    // this is one hours sold amount:
+    let cookiesSoldThisHour = Math.ceil(customesThisHour * this.avg);
 
-      // let finalText = `${hourText}: ${cookiesSoldThisHour} cookies`;
-      // this.averageCookiesSoldEachHourArry.push(finalText);
+    this.dailyTotal += cookiesSoldThisHour;
 
-      let obj = {
-        hour: hourText,
-        count: cookiesSoldThisHour,
-      };
+    // let finalText = `${hourText}: ${cookiesSoldThisHour} cookies`;
+    // this.averageCookiesSoldEachHourArry.push(finalText);
 
-      this.averageCookiesSoldEachHourArry.push(obj);
-    }
-  },
+    let obj = {
+      hour: hourText,
+      count: cookiesSoldThisHour,
+    };
 
-  render: function() {
-    this.calCookiesPerHour();
-    console.log(this.averageCookiesSoldEachHourArry);
-
-    let header = document.createElement('h1');
-    header.textContent = `The Hourly AVG for ${this.name} was:`;
-    profileContainer.appendChild(header);
-
-    let ul = document.createElement('ul');
-
-    for (let i = 0; i < this.averageCookiesSoldEachHourArry.length; i++) {
-      let object = this.averageCookiesSoldEachHourArry[i];
-      // object.hour // hour text
-      // object.count // cookies sold
-
-      let textElement = document.createElement('p');
-
-      let endingText = ' cookie';
-      if (object.count > 1) {
-        endingText += 's';
-      }
-
-      textElement.textContent = object.hour + ' : ' + object.count + endingText;
-
-      // let numToShow = this.averageCookiesSoldEachHourArry[i];
-      let li  = document.createElement('li');
-      li.appendChild(textElement);
-
-      // li.textContent = numToShow;
-      ul.appendChild(li);
-    }
-
-    if (this.dailyTotal > 0) {
-      let totalElement = document.createElement('li');
-      totalElement.textContent = 'Total: ' + this.dailyTotal;
-      ul.appendChild(totalElement);
-    }
-
-    profileContainer.appendChild(ul);
+    this.averageCookiesSoldEachHourArry.push(obj);
   }
 };
 
-seattle.render();
+City.prototype.renderTableRow = function() {
 
-let tokyo = {
-  name: 'Tokyo',
-  min: 3,
-  max: 24,
-  avg: 1.2,
-  dailyTotal: 0,
-  averageCookiesSoldEachHourArry: [],
-  getRandomCustomers: function() {
-    // 'this' references the object. anything defined on the object itself can use 'this'.
-    return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
-  },
-  calCookiesPerHour: function(){
-    for (let i = 0; i < hours.length; i++) {
-      let hourText = hours[i];
-      console.log(hours[i]);
+  let tr = document.createElement('tr');
+  storeTable.appendChild(tr);
 
-      let customesThisHour = this.getRandomCustomers();
+  let tdName = document.createElement('td');
+  tdName.textContent = this.name;
+  tr.appendChild(tdName);
 
-      // this is one hours sold amount:
-      let cookiesSoldThisHour = Math.ceil(customesThisHour * this.avg);
-
-      this.dailyTotal += cookiesSoldThisHour;
-
-      // let finalText = `${hourText}: ${cookiesSoldThisHour} cookies`;
-      // this.averageCookiesSoldEachHourArry.push(finalText);
-
-      let obj = {
-        hour: hourText,
-        count: cookiesSoldThisHour,
-      };
-
-      this.averageCookiesSoldEachHourArry.push(obj);
-    }
-  },
-
-  render: function() {
-    this.calCookiesPerHour();
-    console.log(this.averageCookiesSoldEachHourArry);
-
-    let header = document.createElement('h1');
-    header.textContent = `The Hourly AVG for ${this.name} was:`;
-    profileContainer.appendChild(header);
-
-    let ul = document.createElement('ul');
-
-    for (let i = 0; i < this.averageCookiesSoldEachHourArry.length; i++) {
-      let object = this.averageCookiesSoldEachHourArry[i];
-      // object.hour // hour text
-      // object.count // cookies sold
-
-      let textElement = document.createElement('p');
-
-      let endingText = ' cookie';
-      if (object.count > 1) {
-        endingText += 's';
-      }
-
-      textElement.textContent = object.hour + ' : ' + object.count + endingText;
-
-      // let numToShow = this.averageCookiesSoldEachHourArry[i];
-      let li  = document.createElement('li');
-      li.appendChild(textElement);
-
-      // li.textContent = numToShow;
-      ul.appendChild(li);
-    }
-
-    if (this.dailyTotal > 0) {
-      let totalElement = document.createElement('li');
-      totalElement.textContent = 'Total: ' + this.dailyTotal;
-      ul.appendChild(totalElement);
-    }
-
-    profileContainer.appendChild(ul);
+  for (let i = 0; i < this.averageCookiesSoldEachHourArry.length; i++) {
+    let td = document.createElement('td');
+    td.textContent = this.averageCookiesSoldEachHourArry[i].count;
+    tr.appendChild(td);
   }
+  let td = document.createElement('td');
+  td.textContent = this.dailyTotal;
+  tr.appendChild(td);
 };
 
-tokyo.render();
 
-let dubai = {
-  name: 'Dubai',
-  min: 11,
-  max: 38,
-  avg: 3.7,
-  dailyTotal: 0,
-  averageCookiesSoldEachHourArry: [],
-  getRandomCustomers: function() {
-    // 'this' references the object. anything defined on the object itself can use 'this'.
-    return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
-  },
-  calCookiesPerHour: function(){
-    for (let i = 0; i < hours.length; i++) {
-      let hourText = hours[i];
-      console.log(hours[i]);
+function renderTableHeader() {
+  let tr = document.createElement('tr');
 
-      let customesThisHour = this.getRandomCustomers();
+  let empty = document.createElement('th');
+  tr.appendChild(empty);
 
-      // this is one hours sold amount:
-      let cookiesSoldThisHour = Math.ceil(customesThisHour * this.avg);
-
-      this.dailyTotal += cookiesSoldThisHour;
-
-      // let finalText = `${hourText}: ${cookiesSoldThisHour} cookies`;
-      // this.averageCookiesSoldEachHourArry.push(finalText);
-
-      let obj = {
-        hour: hourText,
-        count: cookiesSoldThisHour,
-      };
-
-      this.averageCookiesSoldEachHourArry.push(obj);
-    }
-  },
-
-  render: function() {
-    this.calCookiesPerHour();
-    console.log(this.averageCookiesSoldEachHourArry);
-
-    let header = document.createElement('h1');
-    header.textContent = `The Hourly AVG for ${this.name} was:`;
-    profileContainer.appendChild(header);
-
-    let ul = document.createElement('ul');
-
-    for (let i = 0; i < this.averageCookiesSoldEachHourArry.length; i++) {
-      let object = this.averageCookiesSoldEachHourArry[i];
-      // object.hour // hour text
-      // object.count // cookies sold
-
-      let textElement = document.createElement('p');
-
-      let endingText = ' cookie';
-      if (object.count > 1) {
-        endingText += 's';
-      }
-
-      textElement.textContent = object.hour + ' : ' + object.count + endingText;
-
-      // let numToShow = this.averageCookiesSoldEachHourArry[i];
-      let li  = document.createElement('li');
-      li.appendChild(textElement);
-
-      // li.textContent = numToShow;
-      ul.appendChild(li);
-    }
-
-    if (this.dailyTotal > 0) {
-      let totalElement = document.createElement('li');
-      totalElement.textContent = 'Total: ' + this.dailyTotal;
-      ul.appendChild(totalElement);
-    }
-
-    profileContainer.appendChild(ul);
+  for (let i = 0; i < hours.length; i++) {
+    let th = document.createElement('th');
+    th.textContent = hours[i];
+    tr.appendChild(th);
   }
-};
+  let dailyLocationTotals = document.createElement('th');
+  dailyLocationTotals.textContent = 'Daily Location Total';
 
-dubai.render();
+  // in the table row ('tr') add another 'th';
+  tr.appendChild(dailyLocationTotals);
+  storeTable2.appendChild(tr);
+}
 
-let paris = {
-  name: 'Paris',
-  min: 20,
-  max: 38,
-  avg: 2.3,
-  dailyTotal: 0,
-  averageCookiesSoldEachHourArry: [],
-  getRandomCustomers: function() {
-    // 'this' references the object. anything defined on the object itself can use 'this'.
-    return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
-  },
-  calCookiesPerHour: function(){
-    for (let i = 0; i < hours.length; i++) {
-      let hourText = hours[i];
-      console.log(hours[i]);
 
-      let customesThisHour = this.getRandomCustomers();
+function renderTableFooter(allCitiesArray) {
+  let tr = document.createElement('tr');
 
-      // this is one hours sold amount:
-      let cookiesSoldThisHour = Math.ceil(customesThisHour * this.avg);
+  let empty = document.createElement('td');
+  empty.textContent = 'Totals';
+  tr.appendChild(empty);
+  let grandTotal = 0;
 
-      this.dailyTotal += cookiesSoldThisHour;
 
-      // let finalText = `${hourText}: ${cookiesSoldThisHour} cookies`;
-      // this.averageCookiesSoldEachHourArry.push(finalText);
+  for (let i = 0; i < hours.length; i++) {
+    let th = document.createElement('td');
+    // totals counter:
+    let totalsPerHour = 0;
 
-      let obj = {
-        hour: hourText,
-        count: cookiesSoldThisHour,
-      };
+    // i equals the hour (6 am for example)
+    for (let j = 0; j < allCitiesArray.length; j++) {
+      // j equals the index of the city in the cities array
+      let city = allCitiesArray[j];
 
-      this.averageCookiesSoldEachHourArry.push(obj);
-    }
-  },
-
-  render: function() {
-    this.calCookiesPerHour();
-    console.log(this.averageCookiesSoldEachHourArry);
-
-    let header = document.createElement('h1');
-    header.textContent = `The Hourly AVG for ${this.name} was:`;
-    profileContainer.appendChild(header);
-
-    let ul = document.createElement('ul');
-
-    for (let i = 0; i < this.averageCookiesSoldEachHourArry.length; i++) {
-      let object = this.averageCookiesSoldEachHourArry[i];
-      // object.hour // hour text
-      // object.count // cookies sold
-
-      let textElement = document.createElement('p');
-
-      let endingText = ' cookie';
-      if (object.count > 1) {
-        endingText += 's';
-      }
-
-      textElement.textContent = object.hour + ' : ' + object.count + endingText;
-
-      // let numToShow = this.averageCookiesSoldEachHourArry[i];
-      let li  = document.createElement('li');
-      li.appendChild(textElement);
-
-      // li.textContent = numToShow;
-      ul.appendChild(li);
+      // this would be the count in seattle at 6 am for example
+      totalsPerHour += city.averageCookiesSoldEachHourArry[i].count;
     }
 
-    if (this.dailyTotal > 0) {
-      let totalElement = document.createElement('li');
-      totalElement.textContent = 'Total: ' + this.dailyTotal;
-      ul.appendChild(totalElement);
-    }
-
-    profileContainer.appendChild(ul);
+    th.textContent = totalsPerHour;
+    grandTotal += totalsPerHour;
+    tr.appendChild(th);
   }
-};
+  let grandTotals = document.createElement('td');
+  grandTotals.textContent = grandTotal;
 
-paris.render();
+  // in the table row ('tr') add another 'th';
+  tr.appendChild(grandTotals);
+  storeTable3.appendChild(tr);
+}
 
-let lima = {
-  name: 'Lima',
-  min: 2,
-  max: 16,
-  avg: 4.6,
-  dailyTotal: 0,
-  averageCookiesSoldEachHourArry: [],
-  getRandomCustomers: function() {
-    // 'this' references the object. anything defined on the object itself can use 'this'.
-    return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
-  },
-  calCookiesPerHour: function(){
-    for (let i = 0; i < hours.length; i++) {
-      let hourText = hours[i];
-      console.log(hours[i]);
+renderTableHeader();
 
-      let customesThisHour = this.getRandomCustomers();
+let allCities = [];
 
-      // this is one hours sold amount:
-      let cookiesSoldThisHour = Math.ceil(customesThisHour * this.avg);
+let seattle = new City('Seattle', 23, 65, 6.3);
+allCities.push(seattle);
 
-      this.dailyTotal += cookiesSoldThisHour;
+let tokyo = new City('Tokyo', 3, 24, 1.2);
+allCities.push(tokyo);
 
-      // let finalText = `${hourText}: ${cookiesSoldThisHour} cookies`;
-      // this.averageCookiesSoldEachHourArry.push(finalText);
+let dubai = new City('Dubai', 11, 38, 3.7);
+allCities.push(dubai);
 
-      let obj = {
-        hour: hourText,
-        count: cookiesSoldThisHour,
-      };
+let paris = new City('Paris', 20, 38, 2.3);
+allCities.push(paris);
 
-      this.averageCookiesSoldEachHourArry.push(obj);
-    }
-  },
+let lima = new City('Lima', 2, 16, 4.6);
+allCities.push(lima);
 
-  render: function() {
-    this.calCookiesPerHour();
-    console.log(this.averageCookiesSoldEachHourArry);
 
-    let header = document.createElement('h1');
-    header.textContent = `The Hourly AVG for ${this.name} was:`;
-    profileContainer.appendChild(header);
+for (let i = 0; i < allCities.length; i++) {
+  let city = allCities[i];
+  city.calCookiesPerHour();
+  city.renderTableRow();
+}
 
-    let ul = document.createElement('ul');
-
-    for (let i = 0; i < this.averageCookiesSoldEachHourArry.length; i++) {
-      let object = this.averageCookiesSoldEachHourArry[i];
-      // object.hour // hour text
-      // object.count // cookies sold
-
-      let textElement = document.createElement('p');
-
-      let endingText = ' cookie';
-      if (object.count > 1) {
-        endingText += 's';
-      }
-
-      textElement.textContent = object.hour + ' : ' + object.count + endingText;
-
-      // let numToShow = this.averageCookiesSoldEachHourArry[i];
-      let li  = document.createElement('li');
-      li.appendChild(textElement);
-
-      // li.textContent = numToShow;
-      ul.appendChild(li);
-    }
-
-    if (this.dailyTotal > 0) {
-      let totalElement = document.createElement('li');
-      totalElement.textContent = 'Total: ' + this.dailyTotal;
-      ul.appendChild(totalElement);
-    }
-
-    profileContainer.appendChild(ul);
-  }
-};
-
-lima.render();
+renderTableFooter(allCities);
