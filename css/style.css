@@ -8,9 +8,18 @@ header{
   border: 10px solid rgb(237, 159, 117);
 }
 
+@keyframes color-change {
+  0% {color: rgb(45, 182, 150);}
+  100% {color: rgb(171, 172, 171);}
+}
+
+.header {
+  animation: color-change 4s infinite;
+}
+
 .header{
-  font-family: Licorice;
-  font-size: 100px; 
+font-family: 'Licorice';
+font-size: 100px; 
 min-width: 450px;
 max-height: 300px;
 text-align: center;
@@ -47,18 +56,18 @@ nav li  {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-  
   }
   
   a:hover, a:active {
     background-color: rgba(78, 228, 181, 0.351);
   }
 
-
 nav li:last-child {
   border-right: 5px solid rgb(237, 159, 117)
 }
+
 .location{
+  font-family: 'cinzel';
   width: fit-content;
  block-size: fit-content;
 }
@@ -78,15 +87,15 @@ nav li:last-child {
 }
 
 .title{
-  font-family: Licorice;
+  font-family: 'Licorice';
   font-size: 100px;
   color: coral;
   padding: 1rem;
   border-radius: 10px;
   border: 20px solid rgb(0, 0, 0);
   background-color: rgb(98, 148, 157);
- 
 }
+
 .box-1{
   color: rgba(127, 255, 212, 0.639);
   top: -480px;
@@ -113,13 +122,9 @@ nav li:last-child {
   margin: 30px;
 }
 
-
 .store_breakdowns{
- 
-  
-  background-color: rgba(0, 0, 0, 0.714); 
+  background-color: rgba(0, 0, 0, .7); 
 }
-
 
 .table{
 padding: 2rem;
@@ -137,7 +142,6 @@ font-size: 70px;
   background-image: url("../img/cookies.jpg");
   background-color: #060606; /* Used if the image is unavailable */
   height: 300px; /* You must set a specified height */
-  /* margin-left: 5rem; */
   background-position: center; /* Center the image */
   background-repeat: repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
@@ -155,7 +159,7 @@ table, td, th {
 
 table {
   margin: 1rem;
-  
+
 }
 
 td, th {
