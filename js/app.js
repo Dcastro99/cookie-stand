@@ -10,7 +10,6 @@ const storeTable3 = document.querySelector('table tfoot');
 const hours = ['6 a.m.', '7 a.m.', '8 a.m.', '9 a.m.', '10 a.m.', '11 a.m.', '12 p.m.', '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.'];
 
 
-
 function City(name, min, max, avg) {
   this.name = name;
   this.min = min;
@@ -26,7 +25,7 @@ City.prototype.getRandomCustomers = function () {
 // 'this' references the object. anything defined on the object itself can use 'this'.
 
 
-City.prototype.calCookiesPerHour =function() {
+City.prototype.calCookiesPerHour = function() {
 
   for (let i = 0; i < hours.length; i++) {
     let hourText = hours[i];
@@ -51,7 +50,7 @@ City.prototype.calCookiesPerHour =function() {
   }
 };
 
-City.prototype.renderTableRow=function() {
+City.prototype.renderTableRow = function() {
 
   let tr = document.createElement('tr');
   storeTable.appendChild(tr);
@@ -82,13 +81,12 @@ function renderTableHeader() {
     th.textContent = hours[i];
     tr.appendChild(th);
   }
-  let dailyTotals = document.createElement('th');
-  dailyTotals.textContent = 'Daily Location Total';
+  let dailyLocationTotals = document.createElement('th');
+  dailyLocationTotals.textContent = 'Daily Location Total';
 
   // in the table row ('tr') add another 'th';
-  tr.appendChild(dailyTotals);
+  tr.appendChild(dailyLocationTotals);
   storeTable2.appendChild(tr);
-
 }
 
 
@@ -119,14 +117,13 @@ function renderTableFooter(allCitiesArray) {
     grandTotal += totalsPerHour;
     tr.appendChild(th);
   }
-  let dailyTotals = document.createElement('td');
-  dailyTotals.textContent = grandTotal;
+  let grandTotals = document.createElement('td');
+  grandTotals.textContent = grandTotal;
 
   // in the table row ('tr') add another 'th';
-  tr.appendChild(dailyTotals);
+  tr.appendChild(grandTotals);
   storeTable3.appendChild(tr);
 }
-
 
 renderTableHeader();
 
