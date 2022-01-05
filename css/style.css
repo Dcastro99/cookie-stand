@@ -178,3 +178,43 @@ thead th {
 tfoot {  
   background-color: rgba(112, 159, 165, .1);
 }
+.home-page {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 111%;
+  max-width: 1600px;
+  height: 50px
+}
+.home-2 {
+  font-family:'Licorice';
+  color: coral;
+  font-size: 50px;
+  display:inline-block;
+  float:left;
+  width: 10%;
+  height: 110px;s
+  
+  
+ 
+  /* text-align: center; */
+  border-left: 5px solid rgb(237, 159, 117);
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+  /* box-sizing: border-box; */
+  transition: all .3s ease-in-out
+ 
+}
+}
+
+.home-2:link, a:visited {
+  background-color: #41464554;
+  color: rgb(228, 143, 97);
+  padding: 0px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.home-2:hover, a:active {
+  background-color: rgba(88, 171, 172, 0.502);
+}
