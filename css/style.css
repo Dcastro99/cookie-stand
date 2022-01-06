@@ -1,5 +1,6 @@
 
 header{
+  
   background-color: rgba(58, 57, 56, 0.488);
   margin: 2rem;
   margin-bottom: 35rem;
@@ -26,7 +27,35 @@ text-align: center;
 padding: 1px;
 }
 
+.info-box{
+  display: flex;
+  flex-direction:column; 
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center; 
+  align-content: center; 
+}
+
+.h3 {
+  
+  font-family: 'Licorice';
+  color: rgba(56, 206, 181, 0.701);
+  font-size: 45px; 
+  min-width: 450px;
+  max-height: 300px;
+  text-align: center;
+  padding: 1px;
+  background-color: rgba(58, 57, 56, 0.372);
+  /* margin: 2rem; */
+  /* /* margin-bottom: 35rem; */
+  margin-top: 10rem; 
+  border-radius: 10px;
+  border: 5px solid rgb(237, 159, 117);
+}
+
+
 nav ul {
+  
   list-style: none;
   padding: 0;
   margin: 0 auto;
@@ -36,6 +65,7 @@ nav ul {
 }
 
 nav li  {
+ 
   display:inline-block;
   float:left;
   width: 40%;
@@ -44,14 +74,15 @@ nav li  {
  
   text-align: center;
   border-left: 5px solid rgb(237, 159, 117);
-  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.495);
   box-sizing: border-box;
-  transition: all .3s ease-in-out
+  transition: all .3s ease-in-out.
+  
 }
 
  a:link, a:visited {
-    background-color: #41464554;
-    color: white;
+    background-color: #4146456d;
+    color: rgb(255, 255, 255);
     padding: 0px 80px;
     text-align: center;
     text-decoration: none;
@@ -59,7 +90,7 @@ nav li  {
   }
   
   a:hover, a:active {
-    background-color: rgba(78, 228, 181, 0.351);
+    background-color: rgba(78, 228, 180, 0.982);
   }
 
 nav li:last-child {
@@ -67,13 +98,14 @@ nav li:last-child {
 }
 
 .location{
+  
   font-family: 'cinzel';
   width: fit-content;
  block-size: fit-content;
 }
 
 .box-2{
- 
+  
   top: -500px;
   position: relative;
   background-color: rgba(58, 57, 56, 0.44);
@@ -142,11 +174,11 @@ font-size: 70px;
 
 .picture{
   background-image: url("../img/cookies.jpg");
-  background-color: #060606; /* Used if the image is unavailable */
-  height: 100px; /* You must set a specified height */
-  background-position: center; /* Center the image */
-  background-repeat:no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+  background-color: #060606; 
+  height: 100px; 
+  background-position: center; 
+  background-repeat:no-repeat; 
+  background-size: cover; 
   color: rgb(194, 191, 191);
 } 
 
@@ -193,7 +225,7 @@ tfoot {
   display:inline-block;
   float:left;
   width: 10%;
-  height: 110px;s
+  height: 110px;
   
   
  
@@ -201,10 +233,10 @@ tfoot {
   border-left: 5px solid rgb(237, 159, 117);
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
   /* box-sizing: border-box; */
-  transition: all .3s ease-in-out
+  transition: all .3s ease-in-out;
  
 }
-}
+
 
 .home-2:link, a:visited {
   background-color: #41464554;
@@ -217,4 +249,80 @@ tfoot {
 
 .home-2:hover, a:active {
   background-color: rgba(88, 171, 172, 0.502);
+}
+.tech-slideshow {
+  
+  height: 280px;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.tech-slideshow > div {
+  margin-top: 5rem;
+  opacity: .5;
+  height: 200px;
+  width: 2526px;
+  background: url(../img/combine_images-3.jpg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transform: translate3d(0, 0, 0);
+}
+.tech-slideshow .mover-1 {
+  animation: moveSlideshow 12s linear infinite;
+}
+.tech-slideshow .mover-2 {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+  background-position: 0 -200px;
+  animation: moveSlideshow 15s linear infinite;
+}
+.tech-slideshow:hover .mover-2 {
+  opacity: 1;
+}
+
+@keyframes moveSlideshow {
+  100% { 
+    transform: translateX(-66.6666%);  
+  }
+}
+p{
+  /* top: -500px; */
+  color: rgb(160, 163, 165);
+  font-family:'open sans';
+  font-size: 20px;
+  font-weight: bold;
+  /* background-color: rgba(0, 0, 0, 0.427); */
+ margin-top: 0rem;
+  
+}
+section{
+  margin-top: 2rem;
+  background-color: rgba(58, 57, 56, 0.235);
+  border-radius: 10px;
+  border: 5px solid rgb(237, 159, 117);
+  width: 225px;
+  height: 400px;
+  display: flex;
+  flex-direction: row; 
+  justify-content:center; 
+  flex-wrap:wrap; 
+  align-items: center; 
+  align-content:center; 
+  padding: 150px;
+  
+}
+.store-names{
+  color: rgba(237, 159, 117, 0.598);
+  font-family: 'poppins';
+  font-size: 25px;
+}
+.contact{
+  color:rgba(237, 159, 117, 0.529) ;
+  font-family: 'poppins';
+  font-size: 25px;
 }
