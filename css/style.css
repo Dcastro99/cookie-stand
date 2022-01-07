@@ -1,10 +1,5 @@
-/* * {
-  box-sizing: border-box;
-} */
-
 
 header{
-  
   background-color: rgba(58, 57, 56, 0.488);
   margin: 2rem;
   margin-bottom: 35rem;
@@ -41,7 +36,6 @@ header{
 }
 
 .h3 {
-  
   font-family: 'Licorice';
   color: rgba(56, 206, 181, 0.701);
   font-size: 45px; 
@@ -50,16 +44,12 @@ header{
   text-align: center;
   padding: 1px;
   background-color: rgba(58, 57, 56, 0.372);
-  /* margin: 2rem; */
-  /* /* margin-bottom: 35rem; */
   margin-top: 10rem; 
   border-radius: 10px;
   border: 5px solid rgb(237, 159, 117);
 }
 
-
 nav ul {
-  
   list-style: none;
   padding: 0;
   margin: 0 auto;
@@ -69,28 +59,23 @@ nav ul {
 }
 
 nav li  {
- 
   display:inline-block;
   width: 40%;
   height: 110px;
   line-height: 110px;
- 
   text-align: center;
   border-left: 5px solid rgb(237, 159, 117);
-  text-shadow: 0 0 4px rgba(0, 0, 0, 0.495);
   box-sizing: border-box;
   transition: all .3s ease-in-out
   }
 
- a:link, a:visited {
-    /* background-color: #4146456d; */
-    color: rgb(255, 255, 255);
+  a:link, a:visited {
     padding: 0px 80px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-  }
-  
+  } 
+   
   a:hover, a:active {
     background-color: rgba(78, 228, 180, 0.982);
   }
@@ -100,24 +85,19 @@ nav li  {
   }
 
 .location{
-  
   font-family: 'cinzel';
   width: fit-content;
-  block-size: fit-content;
 }
 
 .box-2{
-  
   top: -500px;
   position: relative;
-  /* background-color: rgba(58, 57, 56, 0.44); */
   margin: 2rem;
   border-radius: 10px;
   border: 5px solid rgb(237, 159, 117); 
   display:flex;
   justify-content:center;
   align-items: center;
-  
 }
 
 .title{
@@ -136,18 +116,12 @@ nav li  {
   font-family: 'josefin sans';
   font-size: 70px;
   background-color: rgba(0, 0, 0, 0.536);
-  margin-left: px;
- border: 10px thin coral;
 }
 
 .story{
-  top: -500px;
-  
   font-family:'open sans';
   font-size: 30px;
-  font-weight: bold;
   background-color: rgba(0, 0, 0, 0.406);
-  padding: 300px;
   border-radius: 10px;
   border: 15px solid rgb(237, 159, 117);
   padding: 50px;
@@ -156,14 +130,11 @@ nav li  {
 
 .store_breakdowns{ 
   background-color: rgba(0, 0, 0, .7); 
-  
 }
 
 .table{
-
   padding: 2rem;
   align-content: center;
-  /* margin-right: 200px; */
   margin-top: 200px;
   table-layout: fixed;
   width: 100%;
@@ -193,11 +164,6 @@ table, td, th {
   border: 1px solid rgb(237, 159, 117);
 }
 
-/* table {
-  margin: rem;
-
-} */
-
 td, th {
   padding: 1rem;
   color: azure;
@@ -212,34 +178,34 @@ thead th {
 tfoot {  
   background-color: rgba(112, 159, 165, .1);
 }
+
 .home-page {
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  width: 111%;
   max-width: 1600px;
   height: 50px;
-  display: flex;
-  justify-content: flex-start;
-  align-content: center; 
 }
+
+.button{
+  display: flex;
+}
+
 .home-2 {
   font-family:'Licorice';
   color: coral;
   font-size: 50px;
   width: 10%;
-  height: 110px;
   border-left: 5px solid rgb(237, 159, 117);
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
   transition: all .3s ease-in-out;
   margin-top: -2rem;
-  
+  cursor:pointer;
 }
 
 .home-2:link, a:visited {
   background-color: #41464554;
   color: rgb(228, 143, 97);
-  padding: 0px 80px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -248,6 +214,7 @@ tfoot {
 .home-2:hover, a:active {
   background-color: rgba(88, 171, 172, 0.502);
 }
+
 .tech-slideshow {
   border-radius: 10px;
   border: 5px solid rgb(237, 159, 117);
@@ -261,10 +228,7 @@ tfoot {
 }
 
 .tech-slideshow > div {
-  
-  margin-bottom: rem;
   opacity: .5;
-  height: 200px;
   width: 2526px;
   background: url(../img/combine_images-3.jpg);
   position: absolute;
@@ -276,31 +240,21 @@ tfoot {
 .tech-slideshow .mover-1 {
   animation: moveSlideshow 12s linear infinite;
 }
-/* .tech-slideshow .mover-2 {
-  opacity: 0;
-  transition: opacity 0.5s ease-out;
-  background-position: 0 -200px;
-  animation: moveSlideshow 15s linear infinite;
-}
-.tech-slideshow:hover .mover-2 {
-  opacity: 1;
-} */
 
 @keyframes moveSlideshow {
   100% { 
     transform: translateX(-66.6666%);  
   }
 }
+
 p{
-  /* top: -500px; */
   color: rgb(160, 163, 165);
   font-family:'open sans';
   font-size: 20px;
   font-weight: bold;
-  /* background-color: rgba(0, 0, 0, 0.427); */
- margin-top: 0rem;
-  
+  margin-top: 0rem;
 }
+
 section{
   margin-top: 2rem;
   background-color: rgba(58, 57, 56, 0.235);
@@ -309,19 +263,18 @@ section{
   width: 225px;
   height: 400px;
   display: flex;
-  flex-direction: row; 
   justify-content:center; 
   flex-wrap:wrap; 
-  align-items: center; 
   align-content:center; 
   padding: 150px;
-  
 }
+
 .store-names{
   color: rgba(237, 159, 117, 0.598);
   font-family: 'poppins';
   font-size: 25px;
 }
+
 .contact{
   color:rgba(237, 159, 117, 0.529) ;
   font-family: 'poppins';
