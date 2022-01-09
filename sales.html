@@ -19,6 +19,24 @@
     </li>
   </ul>
 
+  <form>
+    <fieldset>
+      <legend class="add-store">Add a Store</legend>
+      <label for="cityName">Name of city</label>
+      <input type="text" name="name" id="cityName" required>
+      <label>The minimum number of customers per hour
+        <input type="number" name="min">
+      </label>
+      <label>The maximum number of customers per hour
+        <input type="number" name="max">
+      </label>
+      <label>The average number of cookies purchased per customer
+        <input type="number" name="avg" min="0" max="100" step="0.1">
+      </label>
+    </fieldset>
+    <button type="submit">Submit</button>
+  </form>
+
   <div class="store_breakdowns">
 
     <table class="table">
