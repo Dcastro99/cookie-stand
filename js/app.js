@@ -7,7 +7,6 @@ const storeTable = document.querySelector('table tbody');
 const storeTable2 = document.querySelector('table thead');
 const storeTable3 = document.querySelector('table tfoot');
 const cityForm = document.querySelector('form');
-
 const hours = ['6 a.m.', '7 a.m.', '8 a.m.', '9 a.m.', '10 a.m.', '11 a.m.', '12 p.m.', '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.'];
 
 
@@ -71,22 +70,6 @@ City.prototype.renderTableRow = function() {
   tr.appendChild(td);
 };
 
-let allCities = [];
-
-function handleSubmit(event){
-  event.preventDefault();
-  let name = event.target.cityName.value;
-  let min = +event.target.min.value;
-  let max = +event.target.max.value;
-  let avg = +event.target.avg.value;
-  let newCity = new City(name,min,max,avg);
-  newCity.calCookiesPerHour();
-  newCity.renderTableRow();
-  allCities.push(newCity);
-  renderTableFooter(allCities);
-}
-
-
 
 function renderTableHeader() {
   let tr = document.createElement('tr');
@@ -149,6 +132,20 @@ function renderTableFooter(allCitiesArray) {
 
 renderTableHeader();
 
+let allCities = [];
+
+function handleSubmit(event){
+  event.preventDefault();
+  let name = event.target.cityName.value;
+  let min = +event.target.min.value;
+  let max = +event.target.max.value;
+  let avg = +event.target.avg.value;
+  let newCity = new City(name,min,max,avg);
+  newCity.calCookiesPerHour();
+  newCity.renderTableRow();
+  allCities.push(newCity);
+  renderTableFooter(allCities);
+}
 
 
 let seattle = new City('Seattle', 23, 65, 6.3);
