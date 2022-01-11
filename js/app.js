@@ -7,9 +7,13 @@ const storeTable = document.querySelector('table tbody');
 const storeTable2 = document.querySelector('table thead');
 const storeTable3 = document.querySelector('table tfoot');
 const cityForm = document.querySelector('form');
-
 const hours = ['6 a.m.', '7 a.m.', '8 a.m.', '9 a.m.', '10 a.m.', '11 a.m.', '12 p.m.', '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.'];
 
+function createNewElement(elName,textCon,append){
+  let newEL = document.createElement(elName);
+  newEL.textContent = textCon;
+  append.appendChild(newEL);
+}
 
 function City(name, min, max, avg) {
   this.name = name;
@@ -25,22 +29,16 @@ City.prototype.getRandomCustomers = function () {
 };
 // 'this' references the object. anything defined on the object itself can use 'this'.
 
-
 City.prototype.calCookiesPerHour = function() {
 
   for (let i = 0; i < hours.length; i++) {
     let hourText = hours[i];
     // console.log(hours[i]);
-
     let customesThisHour = this.getRandomCustomers();
-
     // this is one hours sold amount:
     let cookiesSoldThisHour = Math.ceil(customesThisHour * this.avg);
 
     this.dailyTotal += cookiesSoldThisHour;
-
-    // let finalText = `${hourText}: ${cookiesSoldThisHour} cookies`;
-    // this.averageCookiesSoldEachHourArry.push(finalText);
 
     let obj = {
       hour: hourText,
@@ -51,41 +49,19 @@ City.prototype.calCookiesPerHour = function() {
   }
 };
 
-
 City.prototype.renderTableRow = function() {
 
   let tr = document.createElement('tr');
   storeTable.appendChild(tr);
 
-  let tdName = document.createElement('td');
-  tdName.textContent = this.name;
-  tr.appendChild(tdName);
+  createNewElement('td',this.name,tr);
 
   for (let i = 0; i < this.averageCookiesSoldEachHourArry.length; i++) {
-    let td = document.createElement('td');
-    td.textContent = this.averageCookiesSoldEachHourArry[i].count;
-    tr.appendChild(td);
+
+    createNewElement('td',this.averageCookiesSoldEachHourArry[i].count,tr);
   }
-  let td = document.createElement('td');
-  td.textContent = this.dailyTotal;
-  tr.appendChild(td);
+  createNewElement('td',this.dailyTotal,tr);
 };
-
-let allCities = [];
-
-function handleSubmit(event){
-  event.preventDefault();
-  let name = event.target.cityName.value;
-  let min = +event.target.min.value;
-  let max = +event.target.max.value;
-  let avg = +event.target.avg.value;
-  let newCity = new City(name,min,max,avg);
-  newCity.calCookiesPerHour();
-  newCity.renderTableRow();
-  allCities.push(newCity);
-  renderTableFooter(allCities);
-}
-
 
 
 function renderTableHeader() {
@@ -95,9 +71,7 @@ function renderTableHeader() {
   tr.appendChild(empty);
 
   for (let i = 0; i < hours.length; i++) {
-    let th = document.createElement('th');
-    th.textContent = hours[i];
-    tr.appendChild(th);
+    createNewElement('th',hours[i],tr);
   }
   let dailyLocationTotals = document.createElement('th');
   dailyLocationTotals.textContent = 'Daily Location Total';
@@ -149,6 +123,21 @@ function renderTableFooter(allCitiesArray) {
 
 renderTableHeader();
 
+let allCities = [];
+
+function handleSubmit(event){
+  event.preventDefault();
+  let name = event.target.cityName.value;
+  let min = +event.target.min.value;
+  let max = +event.target.max.value;
+  let avg = +event.target.avg.value;
+  let newCity = new City(name,min,max,avg);
+  newCity.calCookiesPerHour();
+  newCity.renderTableRow();
+  allCities.push(newCity);
+  renderTableFooter(allCities);
+  document.querySelector('form').reset();
+}
 
 
 let seattle = new City('Seattle', 23, 65, 6.3);
