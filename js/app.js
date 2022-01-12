@@ -1,8 +1,5 @@
 'use strict';
 
-// console.log('hi');
-
-//const profileContainer = document.getElementById('store_breakdowns');
 const storeTable = document.querySelector('table tbody');
 const storeTable2 = document.querySelector('table thead');
 const storeTable3 = document.querySelector('table tfoot');
