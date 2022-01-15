@@ -131,7 +131,7 @@ function handleSubmit(event){
   let newCity = new City(name,min,max,avg);
   newCity.calCookiesPerHour();
   newCity.renderTableRow();
-  // allCities.push(newCity);
+  allCities.push(newCity);
   renderTableFooter(allCities);
   document.querySelector('form').reset();
 }
